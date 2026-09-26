@@ -1,0 +1,17 @@
+impl,lang,B,N,D,seconds,repeats,machine
+backward,C-OpenACC,2,64,64,0.000666,5,delta-gpuH200x8
+backward,C-OpenACC,2,128,64,0.001183,5,delta-gpuH200x8
+backward,C-OpenACC,2,256,64,0.002389,5,delta-gpuH200x8
+backward,C-OpenACC,2,512,64,0.009056,5,delta-gpuH200x8
+backward,C-OpenACC,2,1024,64,0.030772,5,delta-gpuH200x8
+backward,C-OpenACC,2,2048,64,0.119286,5,delta-gpuH200x8
+backward,C-OpenACC,2,4096,64,0.506965,5,delta-gpuH200x8
+backward,C-OpenACC,2,8192,64,2.009727,5,delta-gpuH200x8
+fused,C-OpenACC,2,64,64,0.001113,5,delta-gpuH200x8
+fused,C-OpenACC,2,128,64,0.002175,5,delta-gpuH200x8
+fused,C-OpenACC,2,256,64,0.004348,5,delta-gpuH200x8
+fused,C-OpenACC,2,512,64,0.016569,5,delta-gpuH200x8
+fused,C-OpenACC,2,1024,64,0.053955,5,delta-gpuH200x8
+fused,C-OpenACC,2,2048,64,0.223148,5,delta-gpuH200x8
+fused,C-OpenACC,2,4096,64,0.926694,5,delta-gpuH200x8
+fused,C-OpenACC,2,8192,64,3.556925,5,delta-gpuH200x8

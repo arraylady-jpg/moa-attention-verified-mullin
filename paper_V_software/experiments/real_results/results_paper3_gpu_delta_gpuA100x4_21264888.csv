@@ -1,0 +1,12 @@
+impl,lang,n,dk,dv,seconds,machine
+decode,C-OpenACC,1024,64,64,0.000360,delta-gpuA100x4
+decode,C-OpenACC,2048,64,64,0.000436,delta-gpuA100x4
+decode,C-OpenACC,4096,64,64,0.000679,delta-gpuA100x4
+decode,C-OpenACC,8192,64,64,0.000938,delta-gpuA100x4
+decode,C-OpenACC,16384,64,64,0.001469,delta-gpuA100x4
+decode,C-OpenACC,32768,64,64,0.002972,delta-gpuA100x4
+decode,C-OpenACC,65536,64,64,0.005625,delta-gpuA100x4
+decode,C-OpenACC,131072,64,64,0.010916,delta-gpuA100x4
+decode,C-OpenACC,262144,64,64,0.021223,delta-gpuA100x4
+decode,C-OpenACC,524288,64,64,0.047400,delta-gpuA100x4
+decode,C-OpenACC,1048576,64,64,0.080896,delta-gpuA100x4

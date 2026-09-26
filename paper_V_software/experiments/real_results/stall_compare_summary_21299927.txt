@@ -1,0 +1,45 @@
+Job 21299927: warp stall-reason comparison, fused_gpu_bench.c (C) vs
+fused_gpu_bench.f90 (Fortran), N=1024, real A100.
+
+Follow-up to job 21299788 (SASS instruction counts, honestly
+inconclusive -- Fortran has more instructions in every category yet
+runs faster). This profiles WHERE cycles are spent, not just what
+instructions exist.
+
+Real (unprofiled) timing at N=1024: C=0.746480s, Fortran=0.692394s
+(Fortran ~1.08x faster here; the originally reported 1.45-2.81x range
+spans other N values, this is a single-N spot check).
+
+Profiled kernel-by-kernel breakdown (4 kernels each: norm, QKV/proj,
+MLP-forward, MLP-backward/gated):
+
+C kernels:        93=0.0087s  99=0.0057s  104=3.4484s   122=24.5785s
+Fortran kernels:   93=0.0091s 103=0.0058s 112=4.1130s   142=7.7648s
+
+The LAST kernel (gated MLP backward pass) dominates total profiled
+time for both: 87.7% of C's total, 65.3% of Fortran's. For this
+kernel specifically:
+  - C runs 3.165x SLOWER than Fortran (24.58s vs 7.76s, profiled)
+  - C's long_scoreboard stall ratio (global memory latency stalls):
+    4.56, vs Fortran's 1.36 -- C stalls on memory latency 3.35x more
+    for this exact kernel.
+
+This is a real, specific, positive finding (not just a ruled-out
+explanation): the dominant kernel's slowdown in C correlates directly
+with a measured increase in memory-latency stalls, at almost the same
+magnitude as the kernel's own timing gap (3.35x stall increase vs
+3.17x timing increase -- closely matched).
+
+NOT yet explained: WHY C's compiled code for this specific kernel
+stalls on memory latency more than Fortran's -- that would require
+inspecting the actual generated memory access pattern/scheduling for
+this kernel specifically, not done here. This narrows the question
+from "the whole multi-kernel pipeline, unknown cause" to "this one
+kernel, this one stall mechanism, cause of the compiler difference
+still unidentified" -- real progress, not a complete answer.
+
+Other three kernels show a much more mixed, less decisive picture
+(e.g. kernel 104/112: C actually finishes faster despite higher
+short_scoreboard stalls) -- the dominant-kernel finding above is not
+representative of every kernel in the pipeline, only the one that
+matters most for total runtime.

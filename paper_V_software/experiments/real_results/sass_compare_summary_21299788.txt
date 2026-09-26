@@ -1,0 +1,26 @@
+Job 21299788: SASS instruction category comparison, fused_gpu_bench.c
+(C) vs fused_gpu_bench.f90 (Fortran), extracted via cuobjdump.
+
+Investigates: why Fortran runs faster than C on GPU (1.45-2.81x,
+Paper IV Section 6.2) despite C running faster than Fortran on CPU
+for the same denotational computation (1.2-1.85x, Section 6.1).
+
+Result: HONESTLY INCONCLUSIVE. Fortran generates MORE instructions
+in every category, not fewer:
+
+           C      Fortran   diff
+total:    3720    4144     +424 (+11.4%)
+FFMA/DFMA: 520     538      +18  (+3.5%)
+LDG/STG:   392     400       +8  (+2.0%)
+LDS/STS:    40      48       +8 (+20.0%)
+branches:  354     403      +49 (+13.8%)
+
+This rules out a naive "fewer instructions = faster" explanation
+(Fortran has more of everything yet runs faster), but does not
+provide a positive explanation. Raw SASS instruction-category counts
+don't capture scheduling, latency-hiding, or memory-coalescing
+quality -- any of which could explain more-instructions-but-faster.
+
+Next step, not yet done: ncu per-instruction stall-reason profiling
+to see WHERE cycles are actually spent, not just what instructions
+exist.

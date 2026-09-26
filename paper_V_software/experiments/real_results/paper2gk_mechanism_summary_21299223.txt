@@ -1,0 +1,26 @@
+Job 21299223: fused_attn_gpu_bench.c (v4, atomic-free) vs
+fused_attn_gpu_bench_v3atomic.c (GK atomic reconstruction), N=4096.
+Metrics: dram__bytes_read.sum, dram__bytes_write.sum (targeted list,
+not --set full, after OOM on first attempt).
+
+v4 (atomic-free) real timed pass at N=4096:
+  total read:  88.4655 GB
+  total write: 1367.8068 MB
+  TOTAL: 89.8333 GB
+
+v3atomic (GK atomic) real timed pass at N=4096:
+  total read:  44.2422 GB
+  total write: 1358.4836 MB
+  TOTAL: 45.6007 GB
+
+Ratio (v4/v3atomic): 1.9700x
+
+Kernel-level trace:
+  v4 kernel 281 (new standalone GK pass): read=43.0066 GB
+  v4 kernel 232 (computes GS):            read=44.1009 GB (nearly identical)
+  v3atomic kernel 268 (combined GQ+GK):    read=0.2956 GB total
+
+Confirms: the new standalone GK pass re-reads the full GS array from
+DRAM a second time, at almost exactly the same magnitude as the
+original pass that computes it -- explaining the ~2x total DRAM
+traffic and the real N>=4096 slowdown found in job 21294299.

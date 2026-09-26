@@ -1,0 +1,5 @@
+"ID","Process ID","Process Name","Host Name","Kernel Name","Context","Stream","Block Size","Grid Size","Device","CC","dram__bytes_read.sum","dram__bytes_write.sum"
+"","","","","","","","","","","","Mbyte","Mbyte"
+"0","3075364","forward_gpu_bench_profile","127.0.0.1","forward_gpu_bench_c_forward_once_138","1","13","(128, 1, 1)","(128, 1, 1)","0","8.0","0.218496","0.059904"
+"1","3075364","forward_gpu_bench_profile","127.0.0.1","forward_gpu_bench_c_forward_once_138","1","13","(128, 1, 1)","(4096, 1, 1)","0","8.0","9.335040","142.309760"
+"2","3075364","forward_gpu_bench_profile","127.0.0.1","forward_gpu_bench_c_forward_once_138","1","13","(128, 1, 1)","(4096, 1, 1)","0","8.0","9.044992","142.332928"

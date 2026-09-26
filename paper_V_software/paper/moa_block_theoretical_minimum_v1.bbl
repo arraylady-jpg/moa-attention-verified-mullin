@@ -1,0 +1,53 @@
+\begin{thebibliography}{7}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[{Anonymous}(2026{\natexlab{a}})]{deepfusion2026kernel}
+{Anonymous}.
+\newblock Deep kernel fusion for transformers.
+\newblock \emph{arXiv preprint arXiv:2602.11808}, 2026{\natexlab{a}}.
+
+\bibitem[{Anonymous}(2026{\natexlab{b}})]{tile2026activation}
+{Anonymous}.
+\newblock Tile-level activation overlap for efficient llm inference.
+\newblock \emph{arXiv preprint arXiv:2607.02521}, 2026{\natexlab{b}}.
+
+\bibitem[Dao(2023)]{dao2023flashattention2}
+Tri Dao.
+\newblock Flashattention-2: Faster attention with better parallelism and work
+  partitioning.
+\newblock \emph{arXiv preprint arXiv:2307.08691}, 2023.
+
+\bibitem[Dao et~al.(2022)Dao, Fu, Ermon, Rudra, and
+  R{\'e}]{dao2022flashattention}
+Tri Dao, Daniel~Y. Fu, Stefano Ermon, Atri Rudra, and Christopher R{\'e}.
+\newblock Flashattention: Fast and memory-efficient exact attention with
+  io-awareness.
+\newblock In \emph{Advances in Neural Information Processing Systems
+  (NeurIPS)}, volume~35, pages 16344--16359, 2022.
+
+\bibitem[{EmergentMind}(2026)]{emergentmind2026fused}
+{EmergentMind}.
+\newblock Fused triton kernels in llm optimization.
+\newblock \url{https://www.emergentmind.com/topics/fused-triton-kernels}, 2026.
+\newblock Technical reference, accessed 2026.
+
+\bibitem[{NVIDIA Corporation}(2019)]{nvidia2019apex}
+{NVIDIA Corporation}.
+\newblock Apex (a pytorch extension): Fusedlayernorm and fusedrmsnorm.
+\newblock \url{https://github.com/NVIDIA/apex}, 2019.
+\newblock Software.
+
+\bibitem[Shah et~al.(2024)Shah, Bikshandi, Zhang, Thakkar, Ramani, and
+  Dao]{shah2024flashattention3}
+Jay Shah, Ganesh Bikshandi, Ying Zhang, Vijay Thakkar, Pradeep Ramani, and Tri
+  Dao.
+\newblock Flashattention-3: Fast and accurate attention with asynchrony and
+  low-precision.
+\newblock In \emph{Advances in Neural Information Processing Systems
+  (NeurIPS)}, 2024.
+
+\end{thebibliography}

@@ -1,0 +1,5 @@
+impl,lang,B,N,D,seconds,machine
+forward,C-OpenACC,2,64,64,0.000205,delta-gpuA100x4
+forward,C-OpenACC,2,128,64,0.000636,delta-gpuA100x4
+forward,C-OpenACC,2,256,64,0.001449,delta-gpuA100x4
+forward,C-OpenACC,2,512,64,0.002679,delta-gpuA100x4

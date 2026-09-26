@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+title: "Validating Memory-Optimal Transformer Kernels on Real Hardware"
+authors:
+    - family-names: Mullin
+    given-names: Lenore
+    - family-names: Ju
+    given-names: Peilun
+identifiers:
+    - type: hal
+    value: "hal-05734881"
+    - type: url
+    value: "https://arxiv.org/abs/submit/8132497"
+    description: "arXiv submission 8132497 - on hold for moderation as of 2026-09-26"
+repository-code: "https://github.com/womenflyplanes/moa-attention-verified-mullin"
+license: MIT
+version: "paper-V-v1.0"
+date-released: 2026-09-26
