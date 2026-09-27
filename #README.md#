@@ -1,0 +1,10 @@
+# MoA Attention Verified — Memory-Optimal Transformer Kernels
+**232 verified objects • Reproducible across 2 HPC clusters • GPU + CPU**
+
+Formal verification of attention achieving theoretical memory lower bounds, with real-hardware validation. By **Lenore Mullin & Peilun Ju**.
+
+### 🚀 Try it now
+```bash
+git clone https://github.com/arraylady-jpg/moa-attention-verified-mullin.git
+cd moa-attention-verified-mullin
+python -m moa_attention
