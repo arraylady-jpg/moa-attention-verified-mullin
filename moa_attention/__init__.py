@@ -1,3 +1,5 @@
-from .moa_attention import MoAAttention, moa_scaled_dot_product_attention
+"""MoA Attention Verified - Memory-Optimal Transformer Kernels"""
+from .moa_attention import MoAAttention
+
 __version__ = "0.1.0"
-__all__ = ["MoAAttention", "moa_scaled_dot_product_attention"]
+__all__ = ["MoAAttention"]
